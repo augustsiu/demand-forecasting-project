@@ -17,7 +17,8 @@ This project predicts daily product **demand** for a retail business. It looks a
 | `xgboost_demand_model.pkl` | Trained XGBoost model (pickled) |
 | `label_encoder.pkl` | Dictionary of fitted `LabelEncoder`s (`{"Category": LabelEncoder}`) |
 | `app.py` | Streamlit app for making demand predictions |
-| `requirements.txt` | Python dependencies |
+| `requirements.txt` | Pinned dependencies for running the app (used by Streamlit Cloud) |
+| `requirements-dev.txt` | Extra dependencies for running the notebooks |
 
 ## Dataset
 
@@ -96,6 +97,8 @@ The model explains about 43% of the variation in demand, and its predictions are
 
 ## 3. Web App (`app.py`)
 
+**Live demo:** _add your Streamlit Cloud link here_
+
 The Streamlit app loads the saved model and encoder. You enter Price, Discount, Inventory Level, Promotion, Competitor Pricing and Category, and it shows the predicted demand in units.
 
 ## Getting Started
@@ -103,7 +106,7 @@ The Streamlit app loads the saved model and encoder. You enter Price, Discount, 
 ```bash
 python -m venv .venv
 source .venv/bin/activate          # Windows: .venv\Scripts\activate
-pip install -r requirements.txt
+pip install -r requirements-dev.txt  # or requirements.txt for the app only
 
 # Optional: re-run the notebooks in order
 jupyter notebook                   # run 1_analysis.ipynb, then 3_machine_learning.ipynb
